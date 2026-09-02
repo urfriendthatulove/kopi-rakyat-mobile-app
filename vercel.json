@@ -4,31 +4,31 @@
     {
       "src": "server.js",
       "use": "@vercel/node"
-    },
-    {
-      "src": "_ds/**/*",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "*.js",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "*.html",
-      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
-      "src": "/(_ds|.*\\.js|.*\\.css|.*\\.html)/(.*)",
-      "dest": "/$1/$2"
+      "src": "/(.+)",
+      "dest": "server.js"
     },
     {
-      "src": "/(.*)",
+      "src": "/",
       "dest": "server.js"
     }
   ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  "headers": [
+    {
+      "source": "/(.*).(js|css|json)",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/octet-stream"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    }
+  ]
 }
