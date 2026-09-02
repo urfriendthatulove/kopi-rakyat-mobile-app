@@ -1,0 +1,17 @@
+{
+  "name": "kopi-rakyat-app",
+  "version": "1.0.0",
+  "description": "Kopi Rakyat - Coffee Shop Mobile App",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  },
+  "keywords": ["coffee", "mobile", "app"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
